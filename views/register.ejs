@@ -6,17 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 
 <body>
-  <%- include("message")%>
-    <form action="/register" method="POST">
+  <div class="container">
+
+    <form action="/register" method="POST" class="form">
+      <p>Please register</p>
       <input type="text" name="name" id="" placeholder="your name">
       <input type="email" name="email" placeholder="email">
       <input type="password" name="password" placeholder="password">
       <button type="submit">Register</button>
-
+      <p>Member? <a href="/login">login</a></p>
     </form>
+
+    <%- include("message")%>
+  </div>
 </body>
 
 </html>

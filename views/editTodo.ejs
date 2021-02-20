@@ -1,28 +1,44 @@
-<h1>Welcome <%=user.name%> to your page on our awesome page!</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="/logout">Log out</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
 
-<%- include("message") %>
+<body>
+  <div class="container">
+    <p>Welcome <%=user.name%>, <a href="/logout">Log out</a></p>
 
-  <form action="/todolist" method="post">
-    <input type="text" name="task" placeholder="My task..." aria-label="my task" autocomplete="off" autofocus />
-    <button type="submit">Add</button>
-  </form>
 
-  <ul>
-    <% todos.forEach(details=> { %>
-      <% if(details._id==taskId){%>
-        <form action="/todolist/edit/<%=details._id%>" method="post">
-          <input type="text" name="task" value="<%= details.task%>" aria-label="my task" autocomplete="off" autofocus />
-          <button type="submit">Update</button>
-          <a href="/todolist">Cancel</a>
-        </form>
-        <%} else{%>
-          <li>
-            <%= details.task %>
-              <a href="/todolist/edit/<%= details.id %>">Edit</a>
-              <a href="/todolist/delete/<%= details.id %>">Delete</a>
-          </li>
-          <%}%>
-            <% }) %>
-  </ul>
+    <form action="/todolist" method="post" class="form">
+      <h4>Your List</h4>
+      <input type="text" name="task" placeholder="My task..." aria-label="my task" autocomplete="off" />
+      <button type="submit">Add</button>
+    </form>
+    <%- include("message") %>
+      <ul class="list">
+        <% todos.forEach(todo=> { %>
+          <% if(todo._id==taskId){%>
+            <form action="/todolist/edit/<%=todo._id%>" method="post" class="form">
+              <input type="text" name="task" value="<%= todo.task%>" aria-label="my task" autocomplete="off"
+                autofocus />
+              <button type="submit">Update</button>
+              <a href="/todolist">Cancel</a>
+            </form>
+            <%} else{%>
+              <li>
+                <%= todo.task %>
+                  <a href="/todolist/edit/<%= todo.id %>">Edit</a>
+                  <a href="/todolist/delete/<%= todo.id %>">Delete</a>
+              </li>
+              <%}%>
+                <% }) %>
+      </ul>
+  </div>
+</body>
+
+</html>
