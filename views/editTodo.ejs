@@ -1,0 +1,28 @@
+<h1>Welcome <%=user.name%> to your page on our awesome page!</h1>
+
+<a href="/logout">Log out</a>
+
+<%- include("message") %>
+
+  <form action="/todolist" method="post">
+    <input type="text" name="task" placeholder="My task..." aria-label="my task" autocomplete="off" autofocus />
+    <button type="submit">Add</button>
+  </form>
+
+  <ul>
+    <% todos.forEach(details=> { %>
+      <% if(details._id==taskId){%>
+        <form action="/todolist/edit/<%=details._id%>" method="post">
+          <input type="text" name="task" value="<%= details.task%>" aria-label="my task" autocomplete="off" autofocus />
+          <button type="submit">Update</button>
+          <a href="/todolist">Cancel</a>
+        </form>
+        <%} else{%>
+          <li>
+            <%= details.task %>
+              <a href="/todolist/edit/<%= details.id %>">Edit</a>
+              <a href="/todolist/delete/<%= details.id %>">Delete</a>
+          </li>
+          <%}%>
+            <% }) %>
+  </ul>
