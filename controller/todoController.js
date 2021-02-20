@@ -43,7 +43,6 @@ exports.deleteTodo_get = async (req, res) => {
     user.todoList.pull({ _id: todoId });
 
     user.save();
-    console.log(user.todoList);
     res.redirect("/todolist");
   } catch (err) {
     console.log(err);

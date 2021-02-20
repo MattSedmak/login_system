@@ -14,6 +14,7 @@ body {
   max-width: 560px;
   height: 100vh;
   margin: 0 auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
