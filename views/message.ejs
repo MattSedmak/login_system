@@ -1,0 +1,13 @@
+<% if(typeof message !='undefined' ){%>
+  <p class="message">
+    <%=message%>
+  </p>
+  <%}%>
+
+    <% if (success_msg !='' ) { %>
+      <%= success_msg %>
+        <% } %>
+
+          <% if (warning_msg !='' ) { %>
+            <%= warning_msg %>
+              <% } %>

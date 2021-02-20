@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <p>Welcome <%=user.name%>,<%- include("message") %> <a href="/logout">Log out</a></p>
+
+
+    <form action="/todolist" method="post" class="form">
+      <h4>Your List</h4>
+      <input type="text" name="task" placeholder="My task..." aria-label="my task" autocomplete="off" autofocus />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul class="list">
+      <% todos.forEach(todo=> { %>
+
+        <li>
+          <%= todo.task %>
+            <a href="/todolist/edit/<%= todo.id %>">Edit</a>
+            <a href="/todolist/delete/<%= todo.id %>">Delete</a>
+        </li>
+
+        <% }) %>
+    </ul>
+  </div>
+</body>
+
+</html>
