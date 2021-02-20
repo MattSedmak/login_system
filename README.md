@@ -6,7 +6,7 @@ Assignment brief:
 - User must login to be able to access their todo-list. Users can only see their specific todo-list when logged in.
 - User must be able to reset their password.
 
-## Instalation
+## Install
 
 - git clone.
 - npm install.
