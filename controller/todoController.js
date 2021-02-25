@@ -18,7 +18,7 @@ exports.addTodo_post = async (req, res) => {
 
   try {
     if (!task || task.length < 2) {
-      req.flash("warning_msg", "You must type something!");
+      req.flash("warning_msg", "You forgot to type something!");
       res.redirect("back");
     }
     const todo = await new Todo({ task: task }).save();
@@ -71,7 +71,7 @@ exports.editTodo_post = async (req, res) => {
   const task = req.body.task;
   try {
     if (!task || task.length < 2) {
-      req.flash("warning_msg", "You must type something!");
+      req.flash("warning_msg", "You forgot to type something!");
       res.redirect("back");
     }
     await Todo.updateOne(

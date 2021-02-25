@@ -13,7 +13,7 @@ exports.register_get = (req, res) => {
 exports.register_post = async (req, res) => {
   const userMail = await User.findOne({ email: req.body.email });
   const userName = await User.findOne({ name: req.body.name });
-  // const userPassword = await User.findOne({ password: req.body.pass });
+
   try {
     if (
       req.body.email == "" ||
@@ -26,7 +26,7 @@ exports.register_post = async (req, res) => {
     }
     if (userMail || userName) {
       res.render("register.ejs", {
-        message: "email or username already exists",
+        message: "Email or username already exists",
       });
     } else {
       const salt = await bcrypt.genSalt(10);

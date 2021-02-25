@@ -8,17 +8,15 @@ const app = express();
 
 require("dotenv").config();
 
-// *** monbodb connection ***
+// monbodb connection
 connectDB();
 
-// *** adds the form to our body property of the request ***
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(__dirname + "/public"));
 
 const PORT = process.env.PORT || 8080;
 
-// *** adds the form to our body property of the request ***
 app.set("view engine", "ejs");
 
 app.use(
@@ -37,11 +35,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// *** load routers ***
+// routers
 app.use("/", require("./routes/loginRoute"));
 app.use("/", require("./routes/todoRoute"));
 
-// *** create local server ***
+// server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
