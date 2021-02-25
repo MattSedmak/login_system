@@ -46,7 +46,7 @@ exports.reset_post = async (req, res) => {
     });
 
     res.render("reset.ejs", {
-      message: "Email has been sent, please check your mail",
+      message: "Email has been sent, please check your e-mail",
     });
   } catch (err) {
     res.render("reset.ejs", {
@@ -80,7 +80,7 @@ exports.resetPasswordForm_post = async (req, res) => {
   try {
     const user = await User.findOne({ email: email });
     if (newPassword !== confirmPassword) {
-      req.flash("warning_msg", "passwords does not match");
+      req.flash("warning_msg", "passwords do not match");
       res.redirect("back");
     }
 

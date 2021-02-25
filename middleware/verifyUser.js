@@ -4,7 +4,7 @@ require("dotenv").config();
 const verifyUser = async (req, res, next) => {
   const cookie = req.cookies.jwtToken;
 
-  if (!cookie) return res.render("login.ejs", { message: "Access denied!" });
+  if (!cookie) return res.render("login.ejs", { message: "Please login!" });
 
   const validUser = jwt.verify(cookie, process.env.SECRET_KEY);
 

@@ -1,7 +1,5 @@
 const express = require("express");
 const route = express.Router();
-
-// Importfunctions
 const homeController = require("../controller/homeController");
 const registerController = require("../controller/registerController");
 const loginController = require("../controller/loginController");
@@ -28,5 +26,4 @@ route.post("/reset", resetController.reset_post);
 route.get("/reset/:cryptoUrl", resetController.verifyCryptoUrl_get);
 route.post("/resetPasswordForm", resetController.resetPasswordForm_post);
 
-// *** export ***
 module.exports = route;
