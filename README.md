@@ -1,9 +1,9 @@
 # Login & user authenication System 
 ## nodejs, express, mongodb & ejs
 
-Assignment brief:
+App brief:
 
-- Implement a login & authentication system for the todo-list app i created in my first nodejs assignment.
+- Login & authentication system for the todo-list app i created in my first nodejs app.
 - User must login to be able to access their todo-list. Users can only see their specific todo-list when logged in.
 - User must be able to reset their password.
 
